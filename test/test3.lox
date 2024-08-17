@@ -1,26 +1,19 @@
-for (var i = 1; i < 5; i = i + 1) {
-  print i * i;
-}
-
-class Duck {
-  init(name) {
-    this.name = name;
+var a = "global a";
+var b = "global b";
+var c = "global c";
+{
+  var a = "outer a";
+  var b = "outer b";
+  {
+    var a = "inner a";
+    print a;
+    print b;
+    print c;
   }
-
-  quack() {
-    print this.name + " quacks";
-  }
+  print a;
+  print b;
+  print c;
 }
-
-var duck = Duck("Waddles");
-duck.quack();
-
-fun make_adder(n) {
-  fun adder(i) {
-    return n + i;
-  }
-  return adder;
-}
-var add5 = make_adder(5);
-print add5(1);
-print add5(100);
+print a;
+print b;
+print c;
