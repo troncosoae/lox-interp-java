@@ -2,6 +2,8 @@
 
 Following the Crafting Interpreters book. Java section.
 
+Find the book at [Crafting Interpreters](https://craftinginterpreters.com/).
+
 ## Compile
 
 ```bash
