@@ -2,3 +2,5 @@
 var x = 123;
 var y = x + 2;
 var z = (x + y) * x;
+print z;
+print x + y;
