@@ -1,0 +1,21 @@
+var a = 0;
+var temp;
+
+for (var b = 1; a < 10000; b = temp + b) {
+  print a;
+  temp = a;
+  a = b;
+}
+
+print "-------";
+
+fun foo() {
+  print "asdf";
+  var a = 234;
+  print a;
+  return a + 23;
+}
+
+var x = foo();
+
+print x;
