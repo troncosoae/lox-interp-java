@@ -16,6 +16,6 @@ fun foo() {
   return a + 23;
 }
 
-var x = foo();
+var x = foo() / (a + 1 + foo());
 
 print x;
