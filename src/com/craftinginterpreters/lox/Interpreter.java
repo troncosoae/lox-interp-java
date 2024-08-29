@@ -72,10 +72,10 @@ public class Interpreter implements
                 return -(double)right;
             case BANG:
                 return !isTruthy(right);
+            default:
+                throw new RuntimeError(
+                    expr.operator, "Unknown unary operator.");
         }
-
-        // Unreachable.
-        return null;
     }
 
     @Override
@@ -163,6 +163,15 @@ public class Interpreter implements
     @Override
     public Void visitBlockStmt(Stmt.Block stmt) {
         executeBlock(stmt.statements, new Environment(environment));
+        return null;
+    }
+
+    @Override
+    public Void visitClassStmt(Stmt.Class stmt) {
+        environment.define(stmt.name.lexeme, null);
+
+        LoxClass klass = new LoxClass(stmt.name.lexeme);
+        environment.assign(stmt.name, klass);
         return null;
     }
 
@@ -278,10 +287,10 @@ public class Interpreter implements
                 return (double)left <= (double)right;
             case BANG_EQUAL: return !isEqual(left, right);
             case EQUAL_EQUAL: return isEqual(left, right);
+            default:
+                throw new RuntimeError(
+                    expr.operator, "Unknown binary operator.");
         }
-
-        // Unreachable.
-        return null;
     }
 
     @Override
