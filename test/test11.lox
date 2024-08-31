@@ -1,0 +1,98 @@
+class DevonshireCream {
+  init() {
+    this.apple = "myapple";
+  }
+
+  serveOn() {
+    return "Scones";
+  }
+
+  printi() {
+    print this.apple;
+  }
+
+  counter() {
+    this.apple = this.apple + "_";
+  }
+}
+
+class Derived < DevonshireCream {
+  init(a , b) {
+    this.a = a;
+    this.b = b;
+    print("constructing!");
+    super.init();
+  }
+
+  printi() {
+    this.apple = "newapple";
+    print "der!";
+  }
+
+  getapple() {
+    print this.apple;
+  }
+
+  strng() {
+    return this.a + this.b;
+  }
+
+  caller(a) {
+    print "####";
+    print this.a;
+    return a();
+    print "000";
+  }
+}
+
+print DevonshireCream; // Prints "DevonshireCream".
+
+var inst = DevonshireCream();
+print inst;
+
+inst.val = 10;
+
+print inst.val;
+
+print inst.serveOn();
+
+inst.printi();
+
+var der = Derived("hey", "there");
+var der2 = Derived(1, 3);
+
+der.getapple();
+
+der.printi();
+
+der.getapple();
+
+print der.strng();
+
+var res = der2.strng();
+
+print res + 3;
+// print res + "asd"; // This fails!
+
+var meth = inst.printi;
+var count = inst.counter;
+
+meth();
+
+count();
+meth();
+count();
+meth();
+count();
+meth();
+count();
+meth();
+count();
+meth();
+
+var callm = der2.caller;
+callm(meth);
+
+callm(count);
+callm(meth);
+
