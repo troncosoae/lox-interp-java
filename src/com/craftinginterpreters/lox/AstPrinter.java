@@ -20,6 +20,10 @@ class AstPrinter implements Expr.Visitor<String> {
         return parenthesize("set", expr.object, expr.value);
     }
 
+    @Override
+    public String visitSuperExpr(Expr.Super expr) {
+        return parenthesize("super");
+    }
 
     @Override
     public String visitBinaryExpr(Expr.Binary expr) {
