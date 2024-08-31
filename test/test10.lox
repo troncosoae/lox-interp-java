@@ -9,3 +9,9 @@ print DevonshireCream; // Prints "DevonshireCream".
 var inst = DevonshireCream();
 print inst;
 
+inst.val = 10;
+
+print inst.val;
+
+print inst.serveOn();
+
